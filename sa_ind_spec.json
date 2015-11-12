@@ -1,0 +1,78 @@
+{
+  "width": 900,
+  "height": 400,
+
+  "data": [
+    {
+      "name": "d",
+      "url": "sa_ind.json"
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "domain": {"data": "d", "field": "SurfaceArea"},
+      "range": "width",
+      "nice": true,
+      "zero": false,
+      "round": true
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "domain": {"data": "d", "field": "IndepYear"},
+      "range": "height",
+      "nice": true,
+      "zero": false,
+      "round": true
+    }
+  ],
+
+  "axes": [
+    {
+      "type": "x",
+      "title": "Surface Area",
+      "scale": "xscale"
+    },
+    {
+      "type": "y",
+      "title": "Independence Year",
+      "scale": "yscale"
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "line",
+      "from": { "data": "d" },
+      "properties": {
+        "enter": {
+          "interpolate": { "value": "linear" },
+          "y": { "scale": "yscale", "field": "IndepYear"},
+          "x": { "scale": "xscale", "field": "SurfaceArea"},
+          "stroke": {"value": "#000"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": { "data": "d" },
+      "properties": {
+        "enter": {
+          "y": { "scale": "yscale", "field": "IndepYear"},
+          "x": { "scale": "xscale", "field": "SurfaceArea"},
+          "fill": {"value": "#fff"},
+          "stroke": {"value": "#000"},
+          "strokeWidth": {"value": 1},
+          "size": {"value": 49}
+        },
+        "hover": { "fill": { "value": "purple" } },
+        "update": { "fill": { "value": "#fff" } }
+      }
+    }
+
+  ]
+}

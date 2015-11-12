@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Vega Scaffold</title>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://vega.github.io/vega-editor/vendor/d3.min.js"></script>
+
+    <script src="http://vega.github.io/vega/vega.min.js"></script>
+  </head>
+  <body>
+   
+    <h1>Population by Life Expectancy </h1>
+    <div id="vis1"></div>
+    <pre id="vis1-source"></pre>
+    <hr>
+    
+    <h1>Surface Area by Year Became Independent </h1>
+    <div id="vis2"></div>
+    <pre id="vis2-source"></pre>
+	<hr>
+    <h1> Population by Surface Area</h1>
+    <div id="vis3"></div>
+    <pre id="vis3-source"></pre>
+    
+     
+  </body>
+<script src="vega_helpers.js"></script>
+<script type="text/javascript">
+    function parse(spec, elem) {
+        vg.parse.spec(spec, function(chart) { chart({el:elem}).update(); })
+    }
+    parse("pop_le_spec.json", "#vis1");
+    parse("pop_sa_spec.json", "#vis2");
+    parse("sa_ind_spec.json", "#vis3");
+</script>
+<script src="main.js"></script>
+<script type="text/javascript">
+
+<!--  pop_le_spec().run("#vis1");
+  document.getElementById("vis1-source").innerText = JSON.stringify(sa_le_spec().run("#vis1").spec(), null, '  ');
+  
+  pop_sa_spec().run("#vis2");
+  document.getElementById("vis2-source").innerText = JSON.stringify(pop_le_spec().run("#vis2").spec(), null, '  ');
+  
+  sa_ind_spec().run("#vis3");
+  document.getElementById("vis3-source").innerText = JSON.stringify(sa_pop_spec().run("#vis2").spec(), null, '  ');
+-->
+
+
+</script>
+</html>
